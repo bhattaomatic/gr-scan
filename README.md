@@ -8,8 +8,9 @@ Builds on Raspbian and ubuntu 14.04 LTS. You'll need gnuradio, gr-osmosdr and bo
 ==========
 
 In order to compile the source code type
+```
 make
-
+```
 This will create a file called gr-scan which can be used as given below.
 
 (below description taken from the original author's page http://www.techmeology.co.uk/gr-scan/)
