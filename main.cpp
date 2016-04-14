@@ -40,4 +40,5 @@ int main(int argc, char **argv)
 		arguments.get_time());
 	top_block.run();
 	return 0; //actually, we never get here because of the rude way in which we end the scan
+// Fix the code so that the abrupt exit doesn't happen anymore.
 }
