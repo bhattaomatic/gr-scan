@@ -18,12 +18,13 @@
 
 VERSION=2012082301
 CXXFLAGS=-DVERSION="\"gr-scan $(VERSION)\"" -std=c++11 -Wall \
--I/usr/local/include -lgnuradio-pmt -lgnuradio-runtime -lgnuradio-blocks -lgnuradio-fft -lgnuradio-filter -lgnuradio-osmosdr -lboost_system -O2 -Wno-unused-function
+-I/usr/local/include -I/usr/include -lgnuradio-pmt -lgnuradio-runtime -lgnuradio-blocks -lgnuradio-fft -lgnuradio-filter -lgnuradio-osmosdr -lboost_system -O2 -Wno-unused-function
+LDFLAGS= -lpthread -lm -lc $(shell pkg-config --libs librtlsdr libhackrf gnuradio-runtime log4cpp)
 
 gr-scan: *.cpp *.hpp
 	#clang++ $(CXXFLAGS) -o gr-scan main.cpp
-	g++-4.9 $(CXXFLAGS) -o gr-scan main.cpp
-	#g++ $(CXXFLAGS) -o gr-scan main.cpp
+	#g++-4.9 $(CXXFLAGS) -o gr-scan main.cpp
+	g++ -o gr-scan main.cpp $(CXXFLAGS) $(LDFLAGS)
 
 clean:
 	rm -f gr-scan gr-scan.tar.gz
